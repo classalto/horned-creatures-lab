@@ -1,6 +1,6 @@
 import React from 'react';
-import ImageItem from './imageItem.js';
-import images from './data.js';
+import ImageItem from '../imageItem.js';
+import images from '../data.js';
 
 export default class ImageList extends React.Component {
     render() {
