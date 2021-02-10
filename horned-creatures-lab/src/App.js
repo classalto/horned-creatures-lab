@@ -4,13 +4,14 @@ import images from './data.js';
 import Header from './Header.js';
 import ImageList from './imageList/ImageList.js';
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <ImageList images={images} />
-    </div>
-  );
-}
 
-export default App;
+export default class App extends React.Component {
+  render() {
+    return (
+      <>
+        <Header />
+        <ImageList images={images} />
+      </>
+    );
+  }
+}
