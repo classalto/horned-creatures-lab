@@ -6,7 +6,7 @@ export default class ImageList extends React.Component {
     render() {
 
         const creatureImages = this.props.filteredImages.map((image) => {
-            <ImageItem
+            return <ImageItem
                 key={image.title}
                 ImageItemProp={image}
             />})
