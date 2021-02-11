@@ -8,7 +8,7 @@ import ImageList from './imageList/ImageList.js';
 export default class App extends React.Component {
   state = {
     keyword: '',
-    horns: 0,
+    horns: '',
   }
   handleKeywordChange = (e) => {
     this.setState({
