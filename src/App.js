@@ -15,29 +15,33 @@ export default class App extends React.Component {
       keyword: e.target.value
     });
   }
+
   
   
   render() {
     const filteredImages = images.filter((image) => {
-      if (!this.state.horns) return true;
+      if (!this.state.horns && !this.state.keyword) return true;
       if (this.state.horns === image.horns) return true;
+      if (this.state.keyword === image.keyword) return true;
       return false;})
 
     return (
       <>
         <Header />
         <form>
-          Creature Name
-          <input 
-            value={this.state.keyword}
-            onChange={this.handleKeywordChange}
-          />
+          Keywords:
+          <select value={this.state.keyword} onChange={this.handleKeywordChange}>
+            <option value="rhino">rhino</option>
+            <option value="unicorn">unicorn</option>
+            <option value="dragon">dragon</option>
+            <option value="chameleon">chameleon</option>
+          </select>
           Filter By:
           <select
            value={this.state.horns}
            onChange={(e) => {
              this.setState({
-               horns: e.target.value
+               horns: Number(e.target.value)
              })
            }}
           >
