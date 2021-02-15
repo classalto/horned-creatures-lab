@@ -36,7 +36,6 @@ export default class App extends React.Component {
         <Header />
           <Dropdown currentValue={this.state.keyword} handleChange={this.handleKeywordChange}
           options={['narwhal', 'unicorn', 'rhino', 'unilego', 'triceratops', 'markhor', 'mouflon', 'addax', 'chameleon', 'lizard', 'dragon']}/>
-          Filter By:
           <Dropdown currentValue={this.state.horns} handleChange={this.handleHornChange} options={['1', '2', '3', '100']}/>
         <ImageList filteredImages={filteredImages} />
       </>
