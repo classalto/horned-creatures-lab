@@ -3,6 +3,7 @@ import React from 'react';
 import images from './data.js';
 import Header from './Header.js';
 import ImageList from './imageList/ImageList.js';
+import Dropdown from './Dropdown'
 
 
 export default class App extends React.Component {
@@ -14,6 +15,11 @@ export default class App extends React.Component {
     this.setState({
       keyword: e.target.value
     });
+  }
+  handleHornChange = (e) => {
+    this.setState({
+      horns: e.target.value
+    })
   }
 
   
@@ -28,30 +34,10 @@ export default class App extends React.Component {
     return (
       <>
         <Header />
-        <form>
-          Keywords:
-          <select value={this.state.keyword} onChange={this.handleKeywordChange}>
-            <option value="rhino">rhino</option>
-            <option value="unicorn">unicorn</option>
-            <option value="dragon">dragon</option>
-            <option value="chameleon">chameleon</option>
-          </select>
+          <Dropdown currentValue={this.state.keyword} handleChange={this.handleKeywordChange}
+          options={['narwhal', 'unicorn', 'rhino', 'unilego', 'triceratops', 'markhor', 'mouflon', 'addax', 'chameleon', 'lizard', 'dragon']}/>
           Filter By:
-          <select
-           value={this.state.horns}
-           onChange={(e) => {
-             this.setState({
-               horns: Number(e.target.value)
-             })
-           }}
-          >
-            <option value='1'>1 Horn</option>
-            <option value='2'>2 Horns</option>
-            <option value='3'>3 Horns</option>
-            <option value='100'>100 Horns</option>
-          </select>
-          <button>Submit</button>
-        </form>
+          <Dropdown currentValue={this.state.horns} handleChange={this.handleHornChange} options={['1', '2', '3', '100']}/>
         <ImageList filteredImages={filteredImages} />
       </>
     );
